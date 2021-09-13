@@ -64,3 +64,19 @@ def ex2_3(N,n,pr):
         print("max=",max)
         plt.plot(x,y)
     plt.show()
+    
+def ex3_1(n,pr):
+    t=[0]
+    l0=0
+    u=0
+    print("U 0 =",u)
+    for i in range(n-1):
+        u=u+numpy.random.choice(a=[-1,1], p=[1-pr,pr])
+        print("U",i+1,"=",u)
+        if u==0:  
+            t.append(i+1-l0)
+            l0=i+1
+     for i in range (0,t.__sizeof__()):
+         print("temps de retour :",t[i]) 
+           
+        
