@@ -76,7 +76,99 @@ def ex3_1(n,pr):
         if u==0:  
             t.append(i+1-l0)
             l0=i+1
-     for i in range (0,t.__sizeof__()):
-         print("temps de retour :",t[i]) 
+    for i in range (0,len(t)):
+        print("temps de retour :",t[i]) 
+         
+def ex3_2(N,n,pr):
+    t=[0]
+    for i1 in range(N):
+        
+        l0=0
+        print("Marche aléatoire n°",i1+1)
+        u=0
+        max=0
+        min=0
+        #print("U 0 =",u)
+        for i in range(n-1):
+            u=u+numpy.random.choice(a=[-1,1], p=[1-pr,pr])
+            #print("U",i,"=",u)
+            if u>max:
+                max=u
+            if u<min:
+                min=u
+            if u==0:  
+                t.append(i+1-l0)
+                l0=i+1
+        print("min=",min)
+        print("max=",max)
+        for i in range (0,len(t)):
+            print("temps de retour :",t[i])
+        t.clear()
+        
+def ex4_1(n):
+    r=0
+    x=0
+    y=0
+    for i in range(n-1):
+        r=numpy.random.choice(a=[0,1,2,3], p=[0.25,0.25,0.25,0.25])
+        if r==0:
+            x+=1
+        elif r==1:
+            x-=1
+        elif r==2:
+            y+=1
+        elif r==3:
+            y-=1
+        print("x =",x," / y =",y)
+        
+def ex4_2(N,n):
+    for i1 in range(N):
+        print()
+        print("Marche aléatoire n°",i1+1)
+        r=0
+        x=0
+        y=0
+        for i in range(n-1):
+            r=numpy.random.choice(a=[0,1,2,3], p=[0.25,0.25,0.25,0.25])
+            if r==0:
+                x+=1
+            elif r==1:
+                x-=1
+            elif r==2:
+                y+=1
+            elif r==3:
+                y-=1
+            print("x =",x," / y =",y)
+            plt.plot(x,y,'*k')
+        plt.show()
+def ex5(n):
+    r=0
+    x=0
+    X=[0]
+    y=0
+    Y=[0]
+    z=0
+    Z=[0]
+    for i in range(n-1):
+        r=numpy.random.choice(a=[0,1,2,3,4,5], p=[1/6,1/6,1/6,1/6,1/6,1/6])
+        if r==0:
+            x+=1
+        elif r==1:
+            x-=1
+        elif r==2:
+            y+=1
+        elif r==3:
+            y-=1
+        elif r==4:
+            z+=1
+        elif r==5:
+            z-=1
+        print("x =",x," / y =",y," / z =",z) 
+        X.append(x)
+        Y.append(y)
+        Z.append(z)
+        ax = plt.axes(projection='3d')    
+    ax.plot3D(X, Y, Z, '.k')
+    plt.show()
            
         
