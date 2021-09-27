@@ -128,6 +128,8 @@ def ex4_2(N,n):
         r=0
         x=0
         y=0
+        t=[0]
+        l0=0
         for i in range(n-1):
             r=numpy.random.choice(a=[0,1,2,3], p=[0.25,0.25,0.25,0.25])
             if r==0:
@@ -138,9 +140,16 @@ def ex4_2(N,n):
                 y+=1
             elif r==3:
                 y-=1
-            print("x =",x," / y =",y)
-            plt.plot(x,y,'*k')
-        plt.show()
+            if x==0 and y==0:  
+                t.append(i+1-l0)
+                l0=i+1
+            #print("x =",x," / y =",y)
+            plt.plot(x,y,'ko')
+        for i in range (0,len(t)):
+            print("temps de retour :",t[i])
+    plt.show()
+        
+        
 def ex5(n):
     r=0
     x=0
@@ -149,6 +158,9 @@ def ex5(n):
     Y=[0]
     z=0
     Z=[0]
+    t=[0]
+    l0=0
+    
     for i in range(n-1):
         r=numpy.random.choice(a=[0,1,2,3,4,5], p=[1/6,1/6,1/6,1/6,1/6,1/6])
         if r==0:
@@ -163,12 +175,18 @@ def ex5(n):
             z+=1
         elif r==5:
             z-=1
-        print("x =",x," / y =",y," / z =",z) 
+        if x==0 and y==0 and z==0:  
+            t.append(i+1-l0)
+            l0=i+1
+        #print("x =",x," / y =",y," / z =",z) 
         X.append(x)
         Y.append(y)
         Z.append(z)
-        ax = plt.axes(projection='3d')    
-    ax.plot3D(X, Y, Z, '.k')
+    for i in range (0,len(t)):
+            print("temps de retour :",t[i])
+    ax = plt.axes(projection='3d') 
+    ax.plot(X,Y,Z,'b*')
+    ax.plot3D(0,0,0,'ro')
     plt.show()
            
         
